@@ -1,17 +1,19 @@
 const blogsRouter = require('express').Router()
 const Blog = require('../models/blog')
-const { error } = require('../utils/logger')
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 blogsRouter.get('/', async (request, response) => {
+  const decodedToken = jwt.verify(request.token, process.env.SECRET)
+  if (!decodedToken.id) {
+    return response.status(401).json({ error: 'token invalid' })
+  }
+  const user = await User.findById(decodedToken.id)
+  console.log('user ', user)
+
   const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 })
   response.json(blogs)
-
-  // Blog.find({}).then((blogs) => {
-  //   response.json(blogs)
-  // }).catch(error => next(error))
 })
 
 blogsRouter.post('/', async (request, response) => {
@@ -68,13 +70,28 @@ blogsRouter.delete('/:id', async (request, response) => {
 })
 
 blogsRouter.put('/:id', async (request, response) => {
-  const blog = await Blog.findByIdAndUpdate(
-    request.params.id,
-    { likes: request.params.likes },
-    { new: true }
-  )
-  const updateBlog = await Blog.findByIdAndUpdate(request.params.id, blog)
-  response.json(updateBlog)
+  // the update blog data existed in database
+  const blog = await Blog.findById(request.params.id)
+  console.log('blog to update ', blog)
+  if (!blog) response.status(404).end()
+
+  // find the user 
+  const user = request.user
+  if (!user) response.status(404).json({ error: 'there is no user valid' })()
+  // console.log('request.user ', user)
+  if (blog.user.toString() === request.user.id.toString()) {
+    console.log('blog from request ', request.body)
+    const updateBlog = await Blog.findByIdAndUpdate(
+      request.params.id,
+      { likes: request.body.likes },
+      { new: true }
+    )
+    console.log('blog in backend ', updateBlog)
+    response.status(202).json(updateBlog)
+  } else {
+    response.status(404).end()
+  }
+
 })
 
 blogsRouter.get('/:id', async (request, response) => {
