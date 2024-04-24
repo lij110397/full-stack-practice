@@ -1,0 +1,99 @@
+{
+  "anecdotes": [
+    {
+      "content": "If it hurts, do it more often",
+      "id": "12345",
+      "votes": 0
+    },
+    {
+      "content": "Adding manpower to a late software project makes it later!",
+      "id": "67890",
+      "votes": 0
+    },
+    {
+      "content": "The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
+      "id": "23456",
+      "votes": 0
+    },
+    {
+      "content": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+      "id": "78901",
+      "votes": 0
+    },
+    {
+      "content": "Premature optimization is the root of all evil.",
+      "id": "34567",
+      "votes": 0
+    },
+    {
+      "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
+      "id": "89012",
+      "votes": 0
+    },
+    {
+      "id": "60061",
+      "content": "test",
+      "votes": 0
+    },
+    {
+      "id": "46459",
+      "content": "try this one",
+      "votes": 0
+    },
+    {
+      "id": "65283",
+      "content": "what about this",
+      "votes": 0
+    },
+    {
+      "id": "35884",
+      "content": "this one",
+      "votes": 0
+    },
+    {
+      "id": "43057",
+      "content": "hhh",
+      "votes": 0
+    },
+    {
+      "id": "81365",
+      "content": "tr",
+      "votes": 0
+    },
+    {
+      "id": "62654",
+      "content": "tu9s 0je",
+      "votes": 0
+    },
+    {
+      "id": "46526",
+      "content": "again",
+      "votes": 0
+    },
+    {
+      "id": "16819",
+      "content": "sddf",
+      "votes": 0
+    },
+    {
+      "id": "65753",
+      "content": "gggg",
+      "votes": 0
+    },
+    {
+      "id": "66234",
+      "content": "tsdt",
+      "votes": 0
+    },
+    {
+      "id": "9933",
+      "content": "eeeee",
+      "votes": 0
+    },
+    {
+      "id": "97216",
+      "content": "add a new anecdotes",
+      "votes": 0
+    }
+  ]
+}
